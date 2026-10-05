@@ -5,6 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   test:
@@ -34,7 +35,36 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
+      - name: Criar arquivo .env
+        run: |
+          cat > .env <<EOF
+          BASE_URL=http://localhost:3000
+          ADMIN_EMAIL=${{ secrets.ADMIN_EMAIL || 'admin@escola.com' }}
+          ADMIN_SENHA=${{ secrets.ADMIN_SENHA || 'admin123' }}
+          MONGODB_URI=mongodb://127.0.0.1:27017/gestao-de-alunos-test
+          EOF
+
+      - name: Subir a API em segundo plano
+        run: nohup npm start > api.log 2>&1 &
+
+      - name: Aguardar a API ficar disponível
+        run: |
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:3000 > /dev/null && echo "API no ar" && exit 0
+            sleep 2
+          done
+          echo "API não subiu a tempo" && cat api.log && exit 1
+
       - name: Executar testes
-        run: npm test
-        env:
-          MONGODB_URI: mongodb://127.0.0.1:27017/gestao-de-alunos-test
+        run: npm run test:report
+
+      - name: Log da API (em caso de falha)
+        if: failure()
+        run: cat api.log
+
+      - name: Publicar relatório de testes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-testes
+          path: mochawesome-report/

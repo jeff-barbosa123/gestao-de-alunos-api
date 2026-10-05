@@ -1,0 +1,32 @@
+[
+  {
+    "cenario": "sem o campo nome",
+    "aluno": { "email": "sem.nome@example.com", "matricula": "9990001", "senha": "123456" },
+    "statusEsperado": 400,
+    "mensagemEsperada": "Os campos \"nome\", \"email\", \"matricula\" e \"senha\" são obrigatórios."
+  },
+  {
+    "cenario": "sem o campo email",
+    "aluno": { "nome": "Sem Email", "matricula": "9990002", "senha": "123456" },
+    "statusEsperado": 400,
+    "mensagemEsperada": "Os campos \"nome\", \"email\", \"matricula\" e \"senha\" são obrigatórios."
+  },
+  {
+    "cenario": "sem o campo matricula",
+    "aluno": { "nome": "Sem Matricula", "email": "sem.matricula@example.com", "senha": "123456" },
+    "statusEsperado": 400,
+    "mensagemEsperada": "Os campos \"nome\", \"email\", \"matricula\" e \"senha\" são obrigatórios."
+  },
+  {
+    "cenario": "sem o campo senha",
+    "aluno": { "nome": "Sem Senha", "email": "sem.senha@example.com", "matricula": "9990004" },
+    "statusEsperado": 400,
+    "mensagemEsperada": "Os campos \"nome\", \"email\", \"matricula\" e \"senha\" são obrigatórios."
+  },
+  {
+    "cenario": "com e-mail já cadastrado",
+    "aluno": { "nome": "Ana Duplicada", "email": "ana.souza@example.com", "matricula": "9990005", "senha": "123456" },
+    "statusEsperado": 409,
+    "mensagemEsperada": "Já existe um aluno cadastrado com essa matrícula ou e-mail."
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "cenario": "aluno de Matemática entrega lista de exercícios",
+    "aluno": {
+      "nome": "Diego Ramos",
+      "emailPrefixo": "diego.ramos",
+      "senha": "senha123"
+    },
+    "disciplinaId": "disciplina-matematica",
+    "trabalho": {
+      "titulo": "Lista de Exercícios - Funções",
+      "descricao": "Resolução da lista 3 de funções do 1º grau"
+    }
+  },
+  {
+    "cenario": "aluno de História entrega resenha",
+    "aluno": {
+      "nome": "Elisa Martins",
+      "emailPrefixo": "elisa.martins",
+      "senha": "historia@2026"
+    },
+    "disciplinaId": "disciplina-historia",
+    "trabalho": {
+      "titulo": "Resenha - Revolução Francesa",
+      "descricao": "Resenha crítica sobre as causas da Revolução Francesa"
+    }
+  },
+  {
+    "cenario": "aluno de Programação Web entrega projeto",
+    "aluno": {
+      "nome": "Fábio Costa",
+      "emailPrefixo": "fabio.costa",
+      "senha": "web#2026"
+    },
+    "disciplinaId": "disciplina-programacao-web",
+    "trabalho": {
+      "titulo": "API REST com Express",
+      "descricao": "Projeto final com CRUD e autenticação JWT"
+    }
+  }
+]

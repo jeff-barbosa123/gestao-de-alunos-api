@@ -1,0 +1,13 @@
+{
+  "validos": [
+    { "cenario": "administrador", "email": "admin@escola.com", "senha": "admin123", "roleEsperada": "admin" },
+    { "cenario": "aluna Ana Souza", "email": "ana.souza@example.com", "senha": "123456", "roleEsperada": "aluno" },
+    { "cenario": "aluno Bruno Lima", "email": "bruno.lima@example.com", "senha": "123456", "roleEsperada": "aluno" }
+  ],
+  "invalidos": [
+    { "cenario": "senha incorreta", "email": "admin@escola.com", "senha": "senha-errada", "statusEsperado": 401, "mensagemEsperada": "E-mail ou senha inválidos." },
+    { "cenario": "e-mail inexistente", "email": "nao.existe@example.com", "senha": "123456", "statusEsperado": 401, "mensagemEsperada": "E-mail ou senha inválidos." },
+    { "cenario": "sem senha", "email": "admin@escola.com", "senha": "", "statusEsperado": 400, "mensagemEsperada": "Os campos \"email\" e \"senha\" são obrigatórios." },
+    { "cenario": "sem e-mail", "email": "", "senha": "admin123", "statusEsperado": 400, "mensagemEsperada": "Os campos \"email\" e \"senha\" são obrigatórios." }
+  ]
+}

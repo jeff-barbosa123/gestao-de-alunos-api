@@ -1,0 +1,30 @@
+[
+  {
+    "cenario": "sem o campo titulo",
+    "disciplinaId": "disciplina-matematica",
+    "trabalho": { "descricao": "Trabalho sem título" },
+    "statusEsperado": 400,
+    "mensagemEsperada": "Os campos \"disciplinaId\" e \"titulo\" são obrigatórios."
+  },
+  {
+    "cenario": "sem o campo disciplinaId",
+    "disciplinaId": null,
+    "trabalho": { "titulo": "Trabalho sem disciplina" },
+    "statusEsperado": 400,
+    "mensagemEsperada": "Os campos \"disciplinaId\" e \"titulo\" são obrigatórios."
+  },
+  {
+    "cenario": "em disciplina na qual o aluno não está matriculado",
+    "disciplinaId": "disciplina-historia",
+    "trabalho": { "titulo": "Trabalho fora da matrícula" },
+    "statusEsperado": 409,
+    "mensagemEsperada": "O aluno não está matriculado nesta disciplina."
+  },
+  {
+    "cenario": "em disciplina inexistente",
+    "disciplinaId": "disciplina-inexistente",
+    "trabalho": { "titulo": "Trabalho em disciplina fantasma" },
+    "statusEsperado": 404,
+    "mensagemEsperada": "Disciplina com id \"disciplina-inexistente\" não encontrada."
+  }
+]

@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "test": "mocha test/**/*.test.js --exit"
+    "test": "mocha",
+    "test:report": "mocha --reporter mochawesome --reporter-options reportDir=mochawesome-report,reportFilename=relatorio,charts=true"
   },
   "author": "",
   "license": "ISC",
@@ -24,7 +25,9 @@
   },
   "devDependencies": {
     "chai": "^6.2.2",
+    "dotenv": "^18.0.5",
     "mocha": "^11.8.0",
+    "mochawesome": "^8.1.1",
     "nodemon": "^3.1.4",
     "supertest": "^7.2.2"
   }
